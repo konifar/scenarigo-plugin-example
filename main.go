@@ -14,11 +14,12 @@ func main() {
 		os.Exit(-1)
 	}
 
-	f, err := p.Lookup("reponame")
+	f, err := p.Lookup("Reponame")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(-1)
 	}
 
-	f.(func())()
+	name := f.(func() string)()
+	fmt.Println(name)
 }
